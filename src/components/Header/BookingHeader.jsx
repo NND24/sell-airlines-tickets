@@ -79,7 +79,7 @@ const BookingHeader = () => {
           </div>
         </div>
 
-        <div className='z-[1000] text-[#222] bg-[#f4f9f5] border-y-[1px] border-[#d0dad2]'>
+        <div className='z-[1000] text-[#222] bg-[#f5edd0] border-y-[1px] border-[#d0dad2]'>
           <div className='w-[95%]  m-auto relative'>
             <div className='flex py-[10px]'>
               <div className='border-r-[1px] border-[#3f3f3f] px-[25px] flex flex-col'>

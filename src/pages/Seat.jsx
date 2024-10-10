@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import BookingHeader from "../components/Header/BookingHeader";
 import Heading from "../components/Heading";
+import { FaAngleDown, FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { IoAirplaneSharp } from "react-icons/io5";
 
 const Seat = () => {
   return (
@@ -9,42 +11,8 @@ const Seat = () => {
       <Heading title='Chọn chỗ ngồi' description='' keywords='' icon='../../public/favicon.ico' />
       <BookingHeader />
 
-      <div
-        className='w-[75%] my-[20px] mx-auto bg-[#fff] flex p-[20px]'
-        style={{
-          boxShadow: "0 6px 10px rgba(0,0,0,.175)",
-        }}
-      >
-        <div className=''>
-          <h3 className='font-bold text-[20px] text-center mb-[10px]'>Xem chú giải</h3>
-          <div className='flex gap-2'>
-            <div className='flex flex-col items-center'>
-              <div className='seat active'></div>
-              <p className='text-[13px]'>Chỗ ngồi đã </p>
-              <p className='text-[13px]'>chọn</p>
-            </div>
-
-            <div className='flex flex-col items-center'>
-              <div className='seat'></div>
-              <p className='text-[13px]'>Không còn</p>
-              <p className='text-[13px]'>trống</p>
-            </div>
-
-            <div className='flex flex-col items-center'>
-              <div className='seat empty'></div>
-              <p className='text-[13px]'>Chỗ ngồi còn</p>
-              <p className='text-[13px]'>trống</p>
-            </div>
-
-            <div className='flex flex-col items-center'>
-              <img alt='' src='https://i.ibb.co/ftwgLCL/exist.png' />
-              <p className='text-[13px]'>Lối thoát</p>
-              <p className='text-[13px]'>hiểm</p>
-            </div>
-          </div>
-        </div>
-
-        <div className='aircraft'>
+      <div className='w-[75%] my-[20px] mx-auto grid grid-cols-12'>
+        <div className='col-span-8 aircraft'>
           <div className='aircraft-body'>
             <div className='top-left-exists'>
               <img alt='' src='https://i.ibb.co/ftwgLCL/exist.png' />
@@ -425,15 +393,121 @@ const Seat = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className='w-[75%] my-[20px] mx-auto flex justify-end'>
-        <Link
-          to='/booking/traveler'
-          className='mr-[10px] text-[18px] text-[#222222] hover:text-[#e6b441] bg-[#e6b441] hover:bg-[#fff] rounded-[10px] border-[3px] border-[#e6b441] py-[10px] px-[15px] w-fit font-medium '
-        >
-          TIẾP TỤC
-        </Link>
+        <div className='col-span-4'>
+          <div
+            className=' bg-white rounded-md overflow-hidden mb-[20px]'
+            style={{
+              boxShadow: "0 4px 8px rgba(0,0,0,.175)",
+            }}
+          >
+            <h3 className='font-semibold text-[20px] text-[#007390] border-b-[2px] border-[#0980A0] px-[10px] py-[15px]'>
+              Chi tiết chuyến bay
+            </h3>
+
+            <div className=''>
+              <div className='flex items-center justify-between px-[10px] py-[6px] bg-[#cce3e0] cursor-pointer'>
+                <div className='flex items-center gap-2'>
+                  <IoAirplaneSharp className='text-[#007390]' />
+                  <div className='flex items-center gap-1'>
+                    <span className='text-[13px]'>HAN</span>
+                    <FaArrowRightLong className='text-[#007390]' />
+                    <span className='text-[13px]'>SGN</span>
+                  </div>
+                </div>
+
+                <div className='flex gap-1'>
+                  <span className='font-bold text-[17px] text-[#007390]'>469,000</span>
+                  <span className='text-[13px] text-[#007390]'>VND</span>
+
+                  <FaAngleDown className='ml-[8px] mt-[4px] text-[#007390]' />
+                </div>
+              </div>
+
+              <div className=''>
+                <div className='px-[10px] py-[6px] bg-[#fdfae9] flex gap-1'>
+                  <span className='font-bold text-[#007390]'>Khởi hành</span>
+                  <span>22:30, 21 tháng 10 2024</span>
+                </div>
+
+                <div className='p-[10px] flex flex-col'>
+                  <div className='flex items-center gap-1'>
+                    <span className='font-bold text-[14px]'>Hà Nội (HAN)</span>
+                    <FaArrowRightLong className='font-bold text-[14px]' />
+                    <span className='font-bold text-[14px]'>Tp. Hồ Chí Minh (SGN)</span>
+                  </div>
+                  <p className='text-[13px] my-[2px]'>Thời gian: 2 tiếng 15 phút / Bay thẳng</p>
+                  <p className='text-[13px] my-[2px]'>VN 269 Airbus A321</p>
+                  <p className='text-[13px] my-[2px] text-[#007390]'>Hãng khai thác PTIT Airlines</p>
+                </div>
+
+                <div className='px-[10px] py-[6px] bg-[#fdfae9] flex flex-col'>
+                  <div className='flex justify-between items-center'>
+                    <span className='font-bold text-[13px] text-[#007390]'>Người lớn x 1</span>
+                    <span className=''>
+                      <span className='font-bold text-[17px] text-[#007390] mr-[4px]'>469,000</span>
+                      <span className='text-[13px] text-[#007390]'>VND</span>
+                    </span>
+                  </div>
+                  <span className='text-[13px]'>NGUYEN NGOC DAT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className='bg-white rounded-md overflow-hidden'
+            style={{
+              boxShadow: "0 4px 8px rgba(0,0,0,.175)",
+            }}
+          >
+            <h3 className='font-semibold text-[20px] text-[#007390] border-b-[2px] border-[#0980A0] px-[10px] py-[15px]'>
+              Xem chú giải
+            </h3>
+
+            <div className='flex gap-2 px-[10px] py-[15px]'>
+              <div className='flex flex-col items-center'>
+                <div className='seat active'></div>
+                <p className='text-[13px]'>Chỗ ngồi đã </p>
+                <p className='text-[13px]'>chọn</p>
+              </div>
+
+              <div className='flex flex-col items-center'>
+                <div className='seat'></div>
+                <p className='text-[13px]'>Không còn</p>
+                <p className='text-[13px]'>trống</p>
+              </div>
+
+              <div className='flex flex-col items-center'>
+                <div className='seat empty'></div>
+                <p className='text-[13px]'>Chỗ ngồi còn</p>
+                <p className='text-[13px]'>trống</p>
+              </div>
+
+              <div className='flex flex-col items-center'>
+                <img alt='' src='https://i.ibb.co/ftwgLCL/exist.png' />
+                <p className='text-[13px]'>Lối thoát</p>
+                <p className='text-[13px]'>hiểm</p>
+              </div>
+            </div>
+          </div>
+
+          <div className='my-[20px] flex justify-end'>
+            <Link
+              to='/booking/traveler'
+              className='mr-[10px] text-[18px] text-[#005f6e] hover:text-[#fff] hover:bg-[#005f6e] rounded-[10px] border-[3px] border-[#005f6e] py-[10px] px-[25px] w-fit font-medium flex items-center justify-center'
+            >
+              <FaArrowLeftLong />
+            </Link>
+
+            <Link
+              to='/payment'
+              className='text-[18px] text-[#222222] hover:text-[#e6b441] bg-[#e6b441] hover:bg-[#fff] rounded-[10px] border-[3px] border-[#e6b441] py-[10px] px-[15px] w-fit font-medium '
+            >
+              TIẾP TỤC
+            </Link>
+          </div>
+        </div>
       </div>
 
       <Footer />

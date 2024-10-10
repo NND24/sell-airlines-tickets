@@ -5,6 +5,7 @@ import Booking from "../pages/Booking";
 import SummaryBooking from "../pages/SummaryBooking";
 import Traveler from "../pages/Traveler";
 import Seat from "../pages/Seat";
+import Payment from "../pages/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
   {
     path: "/booking/seat",
     element: <Seat />,
+  },
+  {
+    path: "/payment",
+    element: <Payment />,
   },
   { path: "*", element: <NotFound /> },
 ]);

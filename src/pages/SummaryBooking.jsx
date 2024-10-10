@@ -2,7 +2,7 @@ import { MdLuggage, MdOutlineFlightTakeoff } from "react-icons/md";
 import Footer from "../components/Footer";
 import BookingHeader from "../components/Header/BookingHeader";
 import Heading from "../components/Heading";
-import { FaCheck, FaChevronDown, FaChevronUp, FaRegClock, FaTag } from "react-icons/fa6";
+import { FaChevronDown, FaChevronUp, FaRegClock } from "react-icons/fa6";
 import { TiTicket } from "react-icons/ti";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { RiLuggageDepositFill } from "react-icons/ri";
@@ -106,7 +106,29 @@ const SummaryBooking = () => {
                   <div className='w-full  pb-[10px] pt-[15px]'>
                     <h4 className='font-bold text-[18px] text-center text-[#005F6E] py-[10px]'>Chi tiết hành trình</h4>
 
-                    <div className='px-[20px]'>
+                    <div className='relative grid grid-cols-12'>
+                      <span className='col-span-2'>2 giờ 15 phút</span>
+
+                      <div className='col-span-10'>
+                        <div className='flex flex-col mb-[10px]'>
+                          <h4 className='text-[18px] font-semibold text-[#005F6E]'>16:00 TP. Hồ Chí Minh</h4>
+                          <p>Sân bay Tân Sơn Nhất, Việt Nam</p>
+                          <p className='text-[12px]'>Nhà ga 1</p>
+                        </div>
+
+                        <div className='flex flex-col'>
+                          <h4 className='text-[18px] font-semibold text-[#005F6E]'>18:15Hà Nội</h4>
+                          <p>Sân bay Nội Bài, Việt Nam</p>
+                          <p className='text-[12px]'>Nhà ga 1</p>
+                        </div>
+                      </div>
+
+                      <div className='absolute top-[0px] left-[65px] w-[3px] h-[135px] bg-[#005572]'></div>
+                      <div className='absolute top-[-8px] left-[64px] w-[5px] h-[5px] rounded-full bg-[#005572]'></div>
+                      <div className='absolute bottom-[-8px] left-[64px] w-[5px] h-[5px] rounded-full bg-[#005572]'></div>
+                    </div>
+
+                    <div className='mt-[15px]'>
                       <div className='text-[13px]'>
                         <span>Số hiệu chuyến bay</span> <span className='font-bold'>VN 216</span>
                       </div>
@@ -207,14 +229,14 @@ const SummaryBooking = () => {
 
       <div className='w-[75%] my-[20px] mx-auto text-right '>
         <Link
-          to='/booking'
+          to='/booking/traveler'
           className='mr-[10px] text-[18px] text-[#222222] hover:text-[#e6b441] bg-[#e6b441] hover:bg-[#fff] rounded-[10px] border-[3px] border-[#e6b441] py-[10px] px-[15px] w-fit font-medium '
         >
           TIẾP TỤC
         </Link>
 
         <Link
-          to='/booking/shopping-cart'
+          to='/booking/traveler'
           className='text-[18px] text-[#005f6e] hover:text-[#fff] hover:bg-[#005f6e] rounded-[10px] border-[3px] border-[#005f6e] py-[10px] px-[15px] w-fit font-medium '
         >
           ĐĂNG NHẬP VÀ TIẾP TỤC

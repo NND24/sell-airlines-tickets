@@ -1,41 +1,42 @@
-import { MdLuggage, MdOutlineFlightTakeoff } from "react-icons/md";
 import FindTicketModal from "../components/FindTicketModal";
 import Footer from "../components/Footer";
 import BookingHeader from "../components/Header/BookingHeader";
 import Heading from "../components/Heading";
-import { FaCheck, FaChevronDown, FaChevronUp, FaRegClock, FaTag } from "react-icons/fa6";
-import { TiTicket } from "react-icons/ti";
-import { HiOutlineTicket } from "react-icons/hi2";
-import { RiLuggageDepositFill } from "react-icons/ri";
-import { PiFlowerLotusBold } from "react-icons/pi";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Traveler = () => {
-  const [selectedTicket, setSelectedTicket] = useState(null);
-  const [selectedTicketPrice, setSelectedTicketPrice] = useState(null);
-
-  const handleSelectTicket = (id) => {
-    setSelectedTicket(id);
-  };
-
-  const handleSelectTicketPrice = (id) => {
-    setSelectedTicketPrice(id);
-  };
+  const [findFlights, setFindFlights] = useState(false);
 
   return (
     <div className='bg-[#f8f8f8]'>
       <Heading title='Hành khách' description='' keywords='' icon='../../public/favicon.ico' />
       <BookingHeader />
 
-      <div
-        className='w-[75%] my-[20px] mx-auto rounded-b-[4px] px-[20px] py-[10px] bg-[#fbf9f2]'
-        style={{
-          boxShadow: "0 6px 12px rgba(0,0,0,.175)",
-        }}
-      >
-        <FindTicketModal />
+      <div className={`relative h-full  ${findFlights && "!pt-[20px] !pb-[35px]"}`}>
+        <div
+          className={`w-[75%] mx-auto rounded-b-[4px] px-[20px] py-[10px] bg-[#fbf9f2] ${!findFlights && "hidden"}`}
+          style={{
+            boxShadow: "0 6px 10px rgba(0,0,0,.175)",
+          }}
+        >
+          <FindTicketModal />
+        </div>
+
+        <div
+          className='absolute bottom-[-28px] right-[50%] w-[50px] h-[50px] rounded-full bg-[#e0e0e0] flex items-start justify-center cursor-pointer'
+          style={{
+            boxShadow: "rgba(0, 0, 0, 0.2) 0px 0px 4px",
+          }}
+          onClick={() => setFindFlights(!findFlights)}
+        >
+          {!findFlights ? (
+            <FaAngleDown className='text-[22px] pt-[5px]' />
+          ) : (
+            <FaAngleUp className='text-[22px] pt-[5px]' />
+          )}
+        </div>
       </div>
 
       <div className='relative w-full h-[210px]'>
@@ -183,7 +184,7 @@ const Traveler = () => {
 
       <div className='w-[75%] my-[20px] mx-auto flex justify-end'>
         <Link
-          to='/booking/traveler'
+          to='/booking/seat'
           className='text-[18px] text-[#005f6e] hover:text-[#fff] hover:bg-[#005f6e] rounded-[10px] border-[3px] border-[#005f6e] py-[10px] px-[15px] w-fit font-medium'
         >
           XÁC NHẬN

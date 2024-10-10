@@ -3,7 +3,7 @@ import FindTicketModal from "../components/FindTicketModal";
 import Footer from "../components/Footer";
 import BookingHeader from "../components/Header/BookingHeader";
 import Heading from "../components/Heading";
-import { FaCheck, FaChevronDown, FaChevronUp, FaRegClock, FaTag } from "react-icons/fa6";
+import { FaAngleDown, FaAngleUp, FaCheck, FaChevronDown, FaChevronUp, FaRegClock, FaTag } from "react-icons/fa6";
 import { TiTicket } from "react-icons/ti";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { RiLuggageDepositFill } from "react-icons/ri";
@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 const Booking = () => {
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [selectedTicketPrice, setSelectedTicketPrice] = useState(null);
+  const [findFlights, setFindFlights] = useState(false);
 
   const handleSelectTicket = (id) => {
     setSelectedTicket(id);
@@ -29,13 +30,29 @@ const Booking = () => {
       <Heading title='Chọn chuyến bay' description='' keywords='' icon='../../public/favicon.ico' />
       <BookingHeader />
 
-      <div
-        className='w-[75%] my-[20px] mx-auto rounded-b-[4px] px-[20px] py-[10px] bg-[#fbf9f2]'
-        style={{
-          boxShadow: "0 6px 12px rgba(0,0,0,.175)",
-        }}
-      >
-        <FindTicketModal />
+      <div className={`relative h-full  ${findFlights && "!pt-[20px] !pb-[35px]"}`}>
+        <div
+          className={`w-[75%] mx-auto rounded-b-[4px] px-[20px] py-[10px] bg-[#fbf9f2] ${!findFlights && "hidden"}`}
+          style={{
+            boxShadow: "0 6px 10px rgba(0,0,0,.175)",
+          }}
+        >
+          <FindTicketModal />
+        </div>
+
+        <div
+          className='absolute bottom-[-28px] right-[50%] w-[50px] h-[50px] rounded-full bg-[#e0e0e0] flex items-start justify-center cursor-pointer'
+          style={{
+            boxShadow: "rgba(0, 0, 0, 0.2) 0px 0px 4px",
+          }}
+          onClick={() => setFindFlights(!findFlights)}
+        >
+          {!findFlights ? (
+            <FaAngleDown className='text-[22px] pt-[5px]' />
+          ) : (
+            <FaAngleUp className='text-[22px] pt-[5px]' />
+          )}
+        </div>
       </div>
 
       <div className='relative w-full h-[210px]'>

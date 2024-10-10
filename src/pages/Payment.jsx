@@ -10,7 +10,7 @@ const Payment = () => {
   return (
     <div className='bg-[#f8f8f8]'>
       <Heading title='Thanh toán' description='' keywords='' icon='../../public/favicon.ico' />
-      <BookingHeader />
+      <BookingHeader step={4} />
 
       <div className='w-[75%] my-[20px] mx-auto '>
         <div

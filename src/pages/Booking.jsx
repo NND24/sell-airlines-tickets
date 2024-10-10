@@ -28,7 +28,7 @@ const Booking = () => {
   return (
     <div className='bg-[#f8f8f8]'>
       <Heading title='Chọn chuyến bay' description='' keywords='' icon='../../public/favicon.ico' />
-      <BookingHeader />
+      <BookingHeader step={1} />
 
       <div className={`relative h-full  ${findFlights && "!pt-[20px] !pb-[35px]"}`}>
         <div
@@ -41,7 +41,7 @@ const Booking = () => {
         </div>
 
         <div
-          className='absolute bottom-[-28px] right-[50%] w-[50px] h-[50px] rounded-full bg-[#e0e0e0] flex items-start justify-center cursor-pointer'
+          className='absolute bottom-[-28px] right-[50%] w-[50px] h-[50px] rounded-full bg-[#e0e0e0] flex items-start justify-center cursor-pointer z-2'
           style={{
             boxShadow: "rgba(0, 0, 0, 0.2) 0px 0px 4px",
           }}
@@ -55,7 +55,7 @@ const Booking = () => {
         </div>
       </div>
 
-      <div className='relative w-full h-[210px]'>
+      <div className='relative w-full h-[210px] z-3'>
         <img
           src='https://booking.vietnamairlines.com/statics/applications/booking/dynamicContent/1.0.78/assets/img/background/SGN/large.jpg'
           alt=''

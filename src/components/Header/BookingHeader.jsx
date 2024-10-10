@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { BiUser } from "react-icons/bi";
 import { FaSortUp } from "react-icons/fa";
-import { FaArrowRightFromBracket } from "react-icons/fa6";
-import { MdOutlineFlightTakeoff } from "react-icons/md";
+import {
+  FaArrowRightFromBracket,
+  FaArrowRightLong,
+  FaCheck,
+  FaPersonWalkingLuggage,
+  FaRegCreditCard,
+} from "react-icons/fa6";
+import { MdAirlineSeatReclineExtra } from "react-icons/md";
 import { RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { BsFillPersonFill } from "react-icons/bs";
+import { IoAirplaneSharp } from "react-icons/io5";
 
-const BookingHeader = () => {
+const BookingHeader = ({ step }) => {
   const [user, setUser] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
@@ -80,40 +86,159 @@ const BookingHeader = () => {
         </div>
 
         <div className='z-[1000] text-[#222] bg-[#f5edd0] border-y-[1px] border-[#d0dad2]'>
-          <div className='w-[95%]  m-auto relative'>
-            <div className='flex py-[10px]'>
-              <div className='border-r-[1px] border-[#3f3f3f] px-[25px] flex flex-col'>
-                <div className='flex flex-row'>
-                  <span className='text-[22px] font-bold'>HAN</span>
-                  <div className='flex flex-row gap-1 items-center mx-[15px] justify-center h-[2rem] w-[95px]'>
-                    <div>.......................</div>
-                    <MdOutlineFlightTakeoff
-                      className='text-[12px]'
-                      style={{
-                        transform: "translateY(4px)",
-                      }}
-                    />
+          <div className='w-[75%]  m-auto relative'>
+            <div className='flex'>
+              <div
+                className={`relative flex items-center gap-2 mr-[30px] py-[10px] pl-[10px] z-1 ${
+                  step === 1 && "bg-[#e5b54d]"
+                }`}
+              >
+                <div
+                  className={`w-[30px] h-[30px] rounded-full border-[#766235] border-[1px] flex items-center justify-center z-1 ${
+                    (step === 1 || step === 2 || step === 3 || step === 4) && "bg-[#fff]"
+                  }`}
+                >
+                  {step === 2 || step === 3 || step === 4 ? (
+                    <FaCheck className='text-[#007390]' />
+                  ) : (
+                    <IoAirplaneSharp className='text-[#766235]' />
+                  )}
+                </div>
+
+                <div className='flex flex-col z-1'>
+                  <div
+                    className={`flex flex-row items-center gap-[4px] ${
+                      (step === 2 || step === 3 || step === 4) && "text-[#007390]"
+                    }`}
+                  >
+                    <span className='text-[18px] font-bold'>HAN</span>
+                    <FaArrowRightLong className='text-[14px]' />
+                    <span className='text-[18px] font-bold'>SGN</span>
                   </div>
-                  <span className='text-[22px] font-bold'>SGN</span>
+
+                  <div className='flex flex-row justify-between'>
+                    <span className='text-[14px]'>Chọn chuyến bay</span>
+                  </div>
                 </div>
 
-                <div className='flex flex-row justify-between'>
-                  <span className='text-[14px]'>Hà Nội</span>
-                  <span className='text-[14px]'>TP. Hồ Chí Minh</span>
-                </div>
+                {step === 1 && (
+                  <div
+                    className='absolute top-[0px] right-[-35px] z-0'
+                    style={{
+                      width: "0",
+                      height: "0",
+                      borderTop: "35px solid transparent",
+                      borderBottom: "35px solid transparent",
+                      borderLeft: "35px solid #e5b54d",
+                    }}
+                  ></div>
+                )}
               </div>
 
-              <div className='border-r-[1px] border-[#3f3f3f] px-[25px] flex flex-col'>
-                <span className='text-[18px] text-[#383838] font-bold'>Chuyến đi</span>
-                <span className='text-[18px] text-[#383838] font-bold'>Th 5, 10 thg 10</span>
+              <div
+                className={`relative flex items-center gap-2 mr-[30px] py-[10px] pl-[10px] z-1 ${
+                  step === 2 && "bg-[#e5b54d]"
+                }`}
+              >
+                <div
+                  className={`w-[30px] h-[30px] rounded-full border-[#766235] border-[1px] flex items-center justify-center z-1 ${
+                    (step === 2 || step === 3 || step === 4) && "bg-[#fff]"
+                  }`}
+                >
+                  {step === 3 || step === 4 ? (
+                    <FaCheck className='text-[#007390]' />
+                  ) : (
+                    <FaPersonWalkingLuggage className='text-[#766235]' />
+                  )}
+                </div>
+
+                <div className='flex flex-col'>
+                  <span className={`text-[18px] ${step === 3 || step === 4 ? "text-[#007390]" : "text-[#383838]"}`}>
+                    Thông tin khách
+                  </span>
+                  <span className='text-[14px] text-[#383838]'>1 hành khách</span>
+                </div>
+
+                {step === 2 && (
+                  <div
+                    className='absolute top-[0px] right-[-35px] z-0'
+                    style={{
+                      width: "0",
+                      height: "0",
+                      borderTop: "35px solid transparent",
+                      borderBottom: "35px solid transparent",
+                      borderLeft: "35px solid #e5b54d",
+                    }}
+                  ></div>
+                )}
               </div>
 
-              <div className='px-[25px] flex flex-col'>
-                <span className='text-[18px] text-[#383838] font-bold'>Hành khách</span>
-                <div className='text-[18px] text-[#383838] font-bold flex items-center gap-1'>
-                  <span>1</span>
-                  <BsFillPersonFill />
+              <div
+                className={`relative flex items-center gap-2 mr-[30px] py-[10px] pl-[10px] z-1 ${
+                  step === 3 && "bg-[#e5b54d]"
+                }`}
+              >
+                <div
+                  className={`w-[30px] h-[30px] rounded-full border-[#766235] border-[1px] flex items-center justify-center z-1 ${
+                    (step === 3 || step === 4) && "bg-[#fff]"
+                  }`}
+                >
+                  {step === 4 ? (
+                    <FaCheck className='text-[#007390]' />
+                  ) : (
+                    <MdAirlineSeatReclineExtra className='text-[#766235]' />
+                  )}
                 </div>
+
+                <div className='flex flex-col'>
+                  <span className={`text-[18px] ${step === 4 ? "text-[#007390]" : "text-[#383838]"}`}>
+                    Chọn chỗ ngồi
+                  </span>
+                </div>
+
+                {step === 3 && (
+                  <div
+                    className='absolute top-[0px] right-[-35px] z-0'
+                    style={{
+                      width: "0",
+                      height: "0",
+                      borderTop: "35px solid transparent",
+                      borderBottom: "35px solid transparent",
+                      borderLeft: "35px solid #e5b54d",
+                    }}
+                  ></div>
+                )}
+              </div>
+
+              <div
+                className={`relative flex items-center gap-2 mr-[30px] py-[10px] pl-[10px] z-1 ${
+                  step === 4 && "bg-[#e5b54d]"
+                }`}
+              >
+                <div
+                  className={`w-[30px] h-[30px] rounded-full border-[#766235] border-[1px] flex items-center justify-center z-1 ${
+                    step === 4 && "bg-[#fff]"
+                  }`}
+                >
+                  <FaRegCreditCard className='border-[#766235]' />
+                </div>
+
+                <div className='flex flex-col'>
+                  <span className='text-[18px] text-[#383838]'>Thanh toán</span>
+                </div>
+
+                {step === 4 && (
+                  <div
+                    className='absolute top-[0px] right-[-35px] z-0'
+                    style={{
+                      width: "0",
+                      height: "0",
+                      borderTop: "35px solid transparent",
+                      borderBottom: "35px solid transparent",
+                      borderLeft: "35px solid #e5b54d",
+                    }}
+                  ></div>
+                )}
               </div>
             </div>
           </div>
